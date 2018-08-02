@@ -1,23 +1,42 @@
+<style lang="scss">
+  @import '../static/styles.css';
+  html, body {
+    color: #555;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+  }
+  #app {
+    height: 100%;
+    display: flex;
+    .contents {
+      height: 100%;
+      flex-grow: 1;
+      overflow: scroll;
+      box-sizing: border-box;
+    }
+  }
+</style>
+
+
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <nav-link></nav-link>
+    <router-view class="contents"></router-view>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
-</script>
+  // import EditorView from './components/EditorView'
+  // import ListView from './components/ListView'
+  import NavLink from './components/NavLink'
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  export default {
+    name: 'app',
+    components: {
+      // 'editor-view': EditorView,
+      // 'list-view': ListView
+      NavLink
+    }
+  }
+</script>
