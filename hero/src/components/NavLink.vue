@@ -1,6 +1,4 @@
 
-
-
 <template>
   <nav>
     <router-link :to="{name: 'dashbord'}" exact>Dashbord</router-link>

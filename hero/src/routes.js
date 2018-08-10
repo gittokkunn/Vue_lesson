@@ -8,13 +8,19 @@ export default {
   mode: 'history',
   routes: [
     {
-      path: '/dashbord', component: DashBord, name: 'dashbord'
+      path: '/dashbord',
+      component: DashBord,
+      name: 'dashbord'
     },
     {
-      path: '/heroes', component: Heroes, name: 'heroes'
+      path: '/heroes',
+      component: Heroes,
+      name: 'heroes'
     },
     {
-      path: '/detail/:id', components: Detail, name: 'detail'
-    }
+      path: '/detail/:id',
+      component: Detail,
+      name: 'detail'
+    },
   ]
 }

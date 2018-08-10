@@ -1,17 +1,13 @@
 <template>
   <div id="app">
-    <nav-link></nav-link>
-    <router-view></router-view>
+    <img src="./assets/logo.png">
+    <router-view/>
   </div>
 </template>
 
 <script>
-import NavLink from './components/NavLink'
 export default {
-  name: 'App',
-  components: {
-    NavLink
-  },
+  name: 'App'
 }
 </script>
 

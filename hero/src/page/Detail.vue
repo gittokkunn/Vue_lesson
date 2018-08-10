@@ -1,21 +1,35 @@
 <template>
   <div class="Detail">
-    <button>go back</button>
-    <button>save</button>
+    <h1>{{ sharedState.selected_hero.name }}</h1>
+    <p>id: {{ sharedState.selected_hero.id }}</p>
+    <p>name: </p>
+    <input v-model="new_name">
+    <div class="trans-button">
+      <button @click="back">go back</button>
+      <button @click="update">save</button>
+    </div>
   </div>
 </template>
 
 <script>
+import store from '../store'
 export default {
   name: 'Detail',
   data() {
     return {
-      hero: {
-        name: "tokumaru",
-        id: 1
-      }
+      sharedState: store.state,
+      new_name: ''
     }
   },
+  methods: {
+    back() {
+      this.$router.push({name: 'heroes'})
+    },
+    update() {
+      store.actions.updateHero(this.new_name)
+      this.$router.push({name: 'heroes'})
+    }
+  }
 }
 </script>
 

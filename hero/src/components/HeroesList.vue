@@ -1,12 +1,11 @@
 <template>
     <div class="Heroes-List">
-      <h1>My Heroes</h1>
       <ul>
         <li v-for="hero in heroes">
           <a @click="select(hero.id)">
-            <span class="badge">{{ hero.id }}</span>{{hero.name}}
+            <span class="badge">{{ hero.id }}: </span>{{hero.name}}
+            <button @click.stop="remove(hero.id)">remove</button>
           </a>
-          <button @click="remove(hero.id)">remove</button>
         </li>
       </ul>
     </div>

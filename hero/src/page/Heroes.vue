@@ -2,28 +2,20 @@
   <div class="Heroes">
     <h1>My Heroes</h1>
     <heroes-add @add="add"></heroes-add>
-    <heroes-list @remove="remove" @select="select" :heroes="heroes"></heroes-list>
+    <heroes-list @remove="remove" @select="select" :heroes="sharedState.heroes"></heroes-list>
   </div>
 </template>
 
 <script>
 import HeroesAdd from '@/components/HeroesAdd'
 import HeroesList from '@/components/HeroesList'
+import store from '../store'
 export default {
   name: 'Heroes',
   data() {
     return {
-      heroes: [
-          {
-            id: 1,
-            name: "tokkunn"
-          },
-          {
-            id: 2,
-            name: "tokumaru"
-          }
-        ]
-      }
+      sharedState: store.state
+    }
   },
   components: {
     'heroes-add': HeroesAdd,
@@ -31,16 +23,14 @@ export default {
   },
   methods: {
     add(newHero) {
-      this.heroes.push(newHero)
+      store.actions.addHero(newHero)
     },
     select(id) {
-      this.$router.push({name: 'detail', params: {id}})
+      store.actions.selectHero(id)
+      this.$router.push({name: 'detail', params:{id}})
     },
     remove(id) {
-      const index = this.heroes.findIndex((hero) => {
-          return hero.id === id
-        })
-        this.heroes.splice(index, 1)
+      store.actions.removeHero(id)
     }
   }
 }
